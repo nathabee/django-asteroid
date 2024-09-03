@@ -1,6 +1,8 @@
-# Python cache and bytecode files
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
+
 
 # Virtual environment
 venv/
@@ -21,6 +23,9 @@ node_modules/
 dist/
 build/
 
+# Django migrations
+**/migrations/**
+
 # IDE specific files
 .vscode/
 .idea/
@@ -33,3 +38,6 @@ Thumbs.db
 #setup files in root directory. original are in tools
 setup_*.sh
 start_*.sh
+
+# Ignore .env files (if you store sensitive information there)
+.env
