@@ -35,9 +35,7 @@ build/
 Thumbs.db
 
 
-#setup files in root directory. original are in tools
-setup_*.sh
-start_*.sh
+ 
 
 # Ignore .env files (if you store sensitive information there)
 .env
