@@ -1,3 +1,8 @@
+--- these files are just informative and are not used
+-- instead we create database object from manage.py and the django models
+-- see file in games/models.py
+
+
 -- Table to store user login information (using a standard package is assumed later, but here's a basic structure)
 CREATE TABLE users (
        id INT AUTO_INCREMENT PRIMARY KEY,

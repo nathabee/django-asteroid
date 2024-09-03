@@ -1,3 +1,7 @@
+-- these files are just informative and are not used
+-- instead we populate database object from manage.py and the django json files
+
+
 -- Insert initial data into the `users` table 
 --  the password is clearly  :-)  
 --  from django.contrib.auth.hashers import make_password

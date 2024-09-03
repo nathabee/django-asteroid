@@ -55,23 +55,26 @@ To get started with this project, follow the instructions in the setup files.
 
 chmod +x setup_project_server.sh
 ./setup_project_server.sh
-cd django_asteroid_project
+cd django_asteroid
 chmod +x tools/*.sh
 
 
 
 1. installation from apache, python, mysql :
  
-cd django_asteroid_project
+cd django_asteroid
 tools/setup_environment.sh   
 => by installing the database :  dbname astrodb, user astro
 
 
 2. Set up your Python virtual environment and install dependencies from `requirements.txt`. it will also configure django app
 
-cd django_asteroid_project
+cd django_asteroid
 tools/setup_django.sh 
 
+change the file : django_asteroid/asteroid_game/Settings.py and add the IP adress of the server
+
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '<my_ip_address>']
 
 3. Run the database scripts in `db_scripts/` to initialize the database.
 
