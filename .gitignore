@@ -31,4 +31,5 @@ Thumbs.db
 
 
 #setup files in root directory. original are in tools
-setup_.sh
+setup_*.sh
+start_*.sh
