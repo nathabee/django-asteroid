@@ -1,4 +1,23 @@
-#!/bin/bash
+#!/bin/bash 
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Check for necessary system packages
+echo "Checking for necessary system packages..."
+
+if ! command_exists pkg-config || ! dpkg -l | grep -q libmysqlclient-dev; then
+    echo "Required system packages are missing. Installing them now..."
+    sudo apt update
+    sudo apt install -y build-essential pkg-config python3-dev default-libmysqlclient-dev
+else
+    echo "All necessary system packages are already installed."
+fi
+ 
+
+
 
 # Function to display help
 show_help() {
