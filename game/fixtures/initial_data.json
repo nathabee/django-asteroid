@@ -33,7 +33,7 @@
         }
     },
     {
-        "model": "yourappname.player",
+        "model": "game.player",
         "pk": 1,
         "fields": {
             "username": "alice",
@@ -42,7 +42,7 @@
         }
     },
     {
-        "model": "yourappname.player",
+        "model": "game.player",
         "pk": 2,
         "fields": {
             "username": "bob",
@@ -51,7 +51,7 @@
         }
     },
     {
-        "model": "yourappname.player",
+        "model": "game.player",
         "pk": 3,
         "fields": {
             "username": "carol",
@@ -60,7 +60,7 @@
         }
     },
     {
-        "model": "yourappname.spaceobject",
+        "model": "game.spaceobject",
         "pk": 1,
         "fields": {
             "object_type": "asteroid",
@@ -69,7 +69,7 @@
         }
     },
     {
-        "model": "yourappname.spaceobject",
+        "model": "game.spaceobject",
         "pk": 2,
         "fields": {
             "object_type": "asteroid",
@@ -78,7 +78,7 @@
         }
     },
     {
-        "model": "yourappname.spaceobject",
+        "model": "game.spaceobject",
         "pk": 3,
         "fields": {
             "object_type": "planet",
@@ -87,7 +87,7 @@
         }
     },
     {
-        "model": "yourappname.rocket",
+        "model": "game.rocket",
         "pk": 1,
         "fields": {
             "player": 1,
@@ -99,7 +99,7 @@
         }
     },
     {
-        "model": "yourappname.rocket",
+        "model": "game.rocket",
         "pk": 2,
         "fields": {
             "player": 2,
@@ -111,7 +111,7 @@
         }
     },
     {
-        "model": "yourappname.rocket",
+        "model": "game.rocket",
         "pk": 3,
         "fields": {
             "player": 3,
