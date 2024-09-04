@@ -10,11 +10,13 @@ def get_default_user():
 
 
 class Player(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)  # Ensure each user has only one player instance
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default=4)  # Ensure each user has only one player instance
     score = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.username
+
+ 
 
 
 class Game(models.Model):
