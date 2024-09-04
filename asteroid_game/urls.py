@@ -1,4 +1,3 @@
-# urls.py
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
@@ -7,6 +6,12 @@ from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.views.generic import TemplateView
+from asteroid_game.views import custom_404  # Import your custom 404 view
+from django.urls import path, re_path
+from django.views.generic import RedirectView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 # Define the schema view for drf-yasg
 schema_view = get_schema_view(
@@ -25,6 +30,10 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('game.urls')),
+    #path('static/html/<path:path>', TemplateView.as_view(template_name='html/index.html'), name='html'),
+    #path('', TemplateView.as_view(template_name='html/index.html'), name='index'),  # Serve static/html/index.html
+    
+    
 ]
 
 # Serve Swagger UI only in DEBUG mode
@@ -39,6 +48,15 @@ else:
         path('swagger/', TemplateView.as_view(template_name='swagger_unavailable.html'), name='swagger-unavailable'),
     ]
 
-# The static file handling should be managed by your web server in production
+# Serve static files only in DEBUG mode
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+# Redirect all unknown routes to static/html/index.html
+urlpatterns += [
+    re_path(r'^.*$', RedirectView.as_view(url='/static/html/index.html', permanent=False), name='index')
+]
+
+# Custom error handlers
+handler404 = custom_404

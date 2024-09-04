@@ -4,6 +4,10 @@ __pycache__/
 *$py.class
 
 
+# Ignore .env files (if you store sensitive information there)
+*.env
+
+
 # Virtual environment
 venv/
 ENV/
@@ -37,6 +41,3 @@ Thumbs.db
 
  
 
-# Ignore .env files (if you store sensitive information there)
-.env
-settings.py
