@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST API Specification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        pre {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            overflow: auto;
+            font-size: 0.9em;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .endpoint {
+            margin-bottom: 20px;
+        }
+        .endpoint h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>REST API Specification</h1>
+        
+        <div class="endpoint">
+            <h2>Base URL</h2>
+            <pre>http://localhost:8000/api/</pre>
+        </div>
+
+        <div class="endpoint">
+            <h2>1. Initialize Game</h2>
+            <p><strong>URL:</strong> /initialize/</p>
+            <p><strong>Method:</strong> POST</p>
+            <p><strong>Description:</strong> Initializes a new game for a player.</p>
+            <h3>Request Body:</h3>
+            <pre>
+{
+  "user_id": 1
+}
+            </pre>
+            <ul>
+                <li><strong>user_id</strong> (integer, required): The ID of the user for whom the game is being initialized.</li>
+            </ul>
+            <h3>Response:</h3>
+            <ul>
+                <li><strong>Status Code:</strong> 201 Created</li>
+                <li><strong>Content:</strong></li>
+            </ul>
+            <pre>
+{
+  "rocket_position": {
+    "x": 100,
+    "y": 200
+  },
+  "asteroids": [
+    {
+      "x": 300,
+      "y": 100,
+      "speed": 5,
+      "direction": "left"
+    },
+    {
+      "x": 500,
+      "y": 200,
+      "speed": 3,
+      "direction": "down"
+    }
+  ]
+}
+            </pre>
+        </div>
+
+        <div class="endpoint">
+            <h2>2. Submit Score</h2>
+            <p><strong>URL:</strong> /submit_score/</p>
+            <p><strong>Method:</strong> POST</p>
+            <p><strong>Description:</strong> Submits a score for a player.</p>
+            <h3>Request Body:</h3>
+            <pre>
+{
+  "user_id": 1,
+  "score": 1500
+}
+            </pre>
+            <ul>
+                <li><strong>user_id</strong> (integer, required): The ID of the user whose score is being submitted.</li>
+                <li><strong>score</strong> (integer, required): The score to be submitted.</li>
+            </ul>
+            <h3>Response:</h3>
+            <ul>
+                <li><strong>Status Code:</strong> 200 OK</li>
+                <li><strong>Content:</strong></li>
+            </ul>
+            <pre>
+{
+  "status": "success",
+  "message": "Score submitted successfully."
+}
+            </pre>
+            <ul>
+                <li><strong>Status Code:</strong> 404 Not Found</li>
+                <li><strong>Content:</strong></li>
+            </ul>
+            <pre>
+{
+  "error": "Player not found."
+}
+            </pre>
+        </div>
+
+        <div class="endpoint">
+            <h2>3. Get Leaderboard</h2>
+            <p><strong>URL:</strong> /leaderboard/</p>
+            <p><strong>Method:</strong> GET</p>
+            <p><strong>Description:</strong> Retrieves the top 10 players based on their scores.</p>
+            <h3>Response:</h3>
+            <ul>
+                <li><strong>Status Code:</strong> 200 OK</li>
+                <li><strong>Content:</strong></li>
+            </ul>
+            <pre>
+{
+  "leaderboard": [
+    {
+      "user_id": 10,
+      "score": 10000
+    },
+    {
+      "user_id": 9,
+      "score": 9000
+    },
+    ...
+  ]
+}
+            </pre>
+        </div>
+
+        <div class="endpoint">
+            <h2>4. Update Player Action</h2>
+            <p><strong>URL:</strong> /update_action/</p>
+            <p><strong>Method:</strong> POST</p>
+            <p><strong>Description:</strong> Updates the game state based on the player's action.</p>
+            <h3>Request Body:</h3>
+            <pre>
+{
+  "user_id": 1,
+  "action": "move_up"
+}
+            </pre>
+            <ul>
+                <li><strong>user_id</strong> (integer, required): The ID of the user whose game action is being updated.</li>
+                <li><strong>action</strong> (string, required): The action to be performed. Possible values include "move_up", "move_down", "move_left", "move_right".</li>
+            </ul>
+            <h3>Response:</h3>
+            <ul>
+                <li><strong>Status Code:</strong> 200 OK</li>
+                <li><strong>Content:</strong></li>
+            </ul>
+            <pre>
+{
+  "new_rocket_position": {
+    "x": 100,
+    "y": 150
+  },
+  "asteroids": [
+    {
+      "x": 295,
+      "y": 100,
+      "speed": 5,
+      "direction": "left"
+    },
+    ...
+  ]
+}
+            </pre>
+            <ul>
+                <li><strong>Status Code:</strong> 404 Not Found</li>
+                <li><strong>Content:</strong></li>
+            </ul>
+            <pre>
+{
+  "error": "Game not found."
+}
+            </pre>
+        </div>
+    </div>
+</body>
+</html>

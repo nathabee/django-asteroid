@@ -1,125 +1,146 @@
 [
     {
         "model": "auth.user",
-        "pk": 1,
+        "pk": 5,
         "fields": {
-            "username": "alice",
-            "password": "pbkdf2_sha256$260000$G9Y5OTY2ZTg1$DXrK0fOd7zKTKTRvVWxhDOV5s5Ij2mUFSJLPJm6soWg=",
-            "email": "alice@example.com",
+            "username": "dave",
+            "password": "pbkdf2_sha256$260000$G9Y5OTY2ZTg1$DXrK0fOd7zKTKTRvVWxhDOV5s5Ij2mUFSJLPJm6soWg=", 
+            "email": "dave@example.com",
             "is_staff": false,
             "is_active": true
         }
     },
     {
         "model": "auth.user",
-        "pk": 2,
+        "pk": 6,
         "fields": {
-            "username": "bob",
+            "username": "eve",
             "password": "pbkdf2_sha256$260000$G9Y5OTY2ZTg1$DXrK0fOd7zKTKTRvVWxhDOV5s5Ij2mUFSJLPJm6soWg=",
-            "email": "bob@example.com",
+            "email": "eve@example.com",
             "is_staff": false,
             "is_active": true
         }
     },
     {
         "model": "auth.user",
-        "pk": 3,
+        "pk": 7,
         "fields": {
-            "username": "carol",
+            "username": "frank",
             "password": "pbkdf2_sha256$260000$G9Y5OTY2ZTg1$DXrK0fOd7zKTKTRvVWxhDOV5s5Ij2mUFSJLPJm6soWg=",
-            "email": "carol@example.com",
+            "email": "frank@example.com",
+            "is_staff": false,
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "username": "grace",
+            "password": "pbkdf2_sha256$260000$G9Y5OTY2ZTg1$DXrK0fOd7zKTKTRvVWxhDOV5s5Ij2mUFSJLPJm6soWg=",
+            "email": "grace@example.com",
+            "is_staff": false,
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "username": "henry",
+            "password": "pbkdf2_sha256$260000$G9Y5OTY2ZTg1$DXrK0fOd7zKTKTRvVWxhDOV5s5Ij2mUFSJLPJm6soWg=",
+            "email": "henry@example.com",
+            "is_staff": false,
+            "is_active": true
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+            "username": "ivy",
+            "password": "pbkdf2_sha256$260000$G9Y5OTY2ZTg1$DXrK0fOd7zKTKTRvVWxhDOV5s5Ij2mUFSJLPJm6soWg=",
+            "email": "ivy@example.com",
             "is_staff": false,
             "is_active": true
         }
     },
     {
         "model": "game.player",
-        "pk": 1,
+        "pk": 5,
         "fields": {
-            "username": "alice",
-            "score": 1000,
-            "created_at": "2024-09-03T12:00:00Z"
+            "user": 5,
+            "score": 5000
         }
     },
     {
         "model": "game.player",
-        "pk": 2,
+        "pk": 6,
         "fields": {
-            "username": "bob",
-            "score": 1500,
-            "created_at": "2024-09-03T12:00:00Z"
+            "user": 6,
+            "score": 6000
         }
     },
     {
         "model": "game.player",
-        "pk": 3,
+        "pk": 7,
         "fields": {
-            "username": "carol",
-            "score": 2000,
-            "created_at": "2024-09-03T12:00:00Z"
+            "user": 7,
+            "score": 7000
         }
     },
     {
-        "model": "game.spaceobject",
+        "model": "game.player",
+        "pk": 8,
+        "fields": {
+            "user": 8,
+            "score": 8000
+        }
+    },
+    {
+        "model": "game.player",
+        "pk": 9,
+        "fields": {
+            "user": 9,
+            "score": 9000
+        }
+    },
+    {
+        "model": "game.player",
+        "pk": 10,
+        "fields": {
+            "user": 10,
+            "score": 10000
+        }
+    },
+    {
+        "model": "game.game",
         "pk": 1,
         "fields": {
-            "object_type": "asteroid",
-            "pos_x": 10.5,
-            "pos_y": 20.3
+            "player": 5,
+            "rocket_position_x": 100,
+            "rocket_position_y": 200,
+            "asteroids": []
         }
     },
     {
-        "model": "game.spaceobject",
+        "model": "game.game",
         "pk": 2,
         "fields": {
-            "object_type": "asteroid",
-            "pos_x": 30.2,
-            "pos_y": 40.1
+            "player": 6,
+            "rocket_position_x": 150,
+            "rocket_position_y": 250,
+            "asteroids": []
         }
     },
     {
-        "model": "game.spaceobject",
+        "model": "game.game",
         "pk": 3,
         "fields": {
-            "object_type": "planet",
-            "pos_x": 50.5,
-            "pos_y": 60.6
-        }
-    },
-    {
-        "model": "game.rocket",
-        "pk": 1,
-        "fields": {
-            "player": 1,
-            "pos_x": 12.3,
-            "pos_y": 23.4,
-            "speed_x": 1.2,
-            "speed_y": 2.3,
-            "status": "active"
-        }
-    },
-    {
-        "model": "game.rocket",
-        "pk": 2,
-        "fields": {
-            "player": 2,
-            "pos_x": 34.5,
-            "pos_y": 45.6,
-            "speed_x": 2.1,
-            "speed_y": 3.4,
-            "status": "active"
-        }
-    },
-    {
-        "model": "game.rocket",
-        "pk": 3,
-        "fields": {
-            "player": 3,
-            "pos_x": 56.7,
-            "pos_y": 67.8,
-            "speed_x": 3.2,
-            "speed_y": 4.5,
-            "status": "destroyed"
+            "player": 7,
+            "rocket_position_x": 200,
+            "rocket_position_y": 300,
+            "asteroids": []
         }
     }
 ]
