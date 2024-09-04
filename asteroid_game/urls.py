@@ -19,7 +19,7 @@ schema_view = get_schema_view(
         title="Asteroid Game API",
         default_version='v1',
         description="REST API to the Asteroid Game",
-        terms_of_service="https://nathabee.de/terms-of-service/",
+        terms_of_service="/static/html/tos/tos_rest_api.html",
         contact=openapi.Contact(email="nathabe123@gmail.com"),
         license=openapi.License(name="BSD License", url="https://github.com/nathabee/django-asteroid/blob/main/LICENSE")
     ),
